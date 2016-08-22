@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Celebrations</string>
+    <string name="action_settings">Settings</string>
+    <string name="toast_no_permissions">This app cannot work without contacts permission</string>
+    <string name="no_celebration">Καμία ονομαστική γιορτή</string>
+    <string name="one_celebration">Υπάρχει ένας φίλος σας που γιορτάζει!</string>
+    <string name="multiple_celebration">Υπάρχουν %d φίλοι σας που γιορτάζουν!</string>
+
+</resources>
