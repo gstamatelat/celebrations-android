@@ -309,10 +309,6 @@ public class CelebrationsEngine {
             return false;
         }
 
-        if (name.equals("Netdirectbargains")) {
-            System.out.println();
-        }
-
         Boolean tmpB = cache.get(name);
         if (tmpB != null) {
             return tmpB.booleanValue();
