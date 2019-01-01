@@ -163,11 +163,16 @@ public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
 
         if (cc.size() > 0) {
             // ///////////////////////////////////////////////////////////////
-            Intent notificationIntent = new Intent(context, MainActivity.class);
+            /*Intent notificationIntent = new Intent(context, MainActivity.class);
             notificationIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP
                     | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             PendingIntent contentIntent = PendingIntent.getActivity(context, 0,
-                    notificationIntent, Intent.FLAG_ACTIVITY_NEW_TASK);
+                    notificationIntent, Intent.FLAG_ACTIVITY_NEW_TASK);*/
+
+            Intent notificationIntent = new Intent(context, MainActivity.class);
+            notificationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            PendingIntent contentIntent = PendingIntent.getActivity(context, 0,
+                    notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
             String sss;
             if (cc.size() > 1) {
