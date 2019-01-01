@@ -169,7 +169,7 @@ public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
             PendingIntent contentIntent = PendingIntent.getActivity(context, 0,
                     notificationIntent, Intent.FLAG_ACTIVITY_NEW_TASK);
 
-            String sss = "";
+            String sss;
             if (cc.size() > 1) {
                 sss = String.format(context.getResources().getString(R.string.multiple_celebration), cc.size());
             } else if (cc.size() == 1) {
@@ -178,14 +178,11 @@ public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
                 sss = context.getResources().getString(R.string.no_celebration);
             }
 
-            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
-                    context)
+            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
                     .setSmallIcon(R.drawable.ic_launcher_white)
                     .setContentTitle(context.getString(R.string.app_name))
                     .setContentText(sss)
-                    .setSound(
-                            RingtoneManager
-                                    .getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                    .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                     .setAutoCancel(true).setContentIntent(contentIntent)
                     .setLights(0xFFFFFF, 1000, 10000).setOngoing(true);
 
