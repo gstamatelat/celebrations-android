@@ -3,6 +3,7 @@ package gr.james.celebrations;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -181,7 +182,20 @@ public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
                 sss = context.getResources().getString(R.string.no_celebration);
             }
 
-            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+            String CHANNEL_ID = "celebrations_channel_01";
+            NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID,
+                    "Main Notification Channel", NotificationManager.IMPORTANCE_HIGH);
+            //mChannel.setDescription(Description);
+            //mChannel.enableLights(true);
+            //mChannel.setLightColor(Color.RED);
+            //mChannel.enableVibration(true);
+            //mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+            //mChannel.setShowBadge(false);
+            notificationManager.createNotificationChannel(mChannel);
+
+            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, CHANNEL_ID)
                     .setSmallIcon(R.drawable.ic_launcher_white)
                     .setContentTitle(context.getString(R.string.app_name))
                     .setContentText(sss)
@@ -189,8 +203,8 @@ public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
                     .setAutoCancel(true).setContentIntent(contentIntent)
                     .setLights(0xFFFFFF, 1000, 10000).setOngoing(true);
 
-            NotificationManager notificationManager = (NotificationManager) context
-                    .getSystemService(Context.NOTIFICATION_SERVICE);
+            /*NotificationManager notificationManager = (NotificationManager) context
+                    .getSystemService(Context.NOTIFICATION_SERVICE);*/
             notificationManager.notify(0, mBuilder.build());
             // ////////////////////////////////////////////////////////////////
         }
