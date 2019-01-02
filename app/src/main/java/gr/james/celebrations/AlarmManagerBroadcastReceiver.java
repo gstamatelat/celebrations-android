@@ -52,8 +52,6 @@ public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
 
     public static ArrayList<Contact> getCelebrationContacts(Context context) {
 
-        int gggggggg = context.getResources().getInteger(R.integer.contacts_read_permission);
-
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions((Activity) context,
                     new String[]{Manifest.permission.READ_CONTACTS},
