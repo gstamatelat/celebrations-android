@@ -46,7 +46,7 @@ public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
             am.set(AlarmManager.RTC_WAKEUP, mine.getTimeInMillis(), pi);
         } else {
             am.setRepeating(AlarmManager.RTC_WAKEUP, mine.getTimeInMillis(),
-                    60000 * 24, pi);
+                    AlarmManager.INTERVAL_DAY, pi);
         }
     }
 
